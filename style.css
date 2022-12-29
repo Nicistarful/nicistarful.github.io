@@ -120,16 +120,49 @@ a:hover {
 }
 
 .profile-picture {
-    /* circle border, centered horizontally, 16px margin to top, 4px #333 border */
+    /* clip image to constraints of parent element */
+    object-fit: cover;
+    /* center image in parent element and resize to fit */
+    object-position: center;
+    /* transition on opacity */
+    transition: all 0.5s;
+    width: 128px;
+    height: 128px;
+}
+
+.about-me-btn {
+    background-color: #333;
+    border: 8px solid #333;
     border-radius: 50%;
     margin: 32px auto;
-    border: 8px solid #333;
     width: 128px;
     height: 128px;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+    overflow: hidden;
+}
+
+.about-me-btn:hover .profile-picture {
+    opacity: 0;
+}
+
+.about-me-btn:hover .about-me-text {
+    opacity: 1;
+}
+
+.about-me-text {
+    /* position in the center and behind the img element */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -125%);
+    /* text centered */
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transform: all 0.5s;
 }
 
 .footer {
